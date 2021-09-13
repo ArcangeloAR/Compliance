@@ -1,27 +1,27 @@
-package automoveis.config;
-
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
-import automoveis.model.Automovel;
-
-public class PersistidorDeAutomovel {
-
-	public static void main(String[] args) {
-
-		// FIND
-		
-		EntityManager em = JPAUtil.getEntityManager();
-		
-		Query q = em.createQuery("SELECT a FROM Automovel a", Automovel.class);
-		
-		List<Automovel> autos = q.getResultList();
-		
-		for(Automovel a : autos) {
-			System.out.println(a.getMarca());
-		}
+//package automoveis.config;
+//
+//import java.util.List;
+//
+//import javax.persistence.EntityManager;
+//import javax.persistence.Query;
+//
+//import automoveis.model.Automovel;
+//
+//public class PersistidorDeAutomovel {
+//
+//	public static void main(String[] args) {
+//
+//		// FIND
+//		
+//		EntityManager em = JPAUtil.getEntityManager();
+//		
+//		Query q = em.createQuery("SELECT a FROM Automovel a", Automovel.class);
+//		
+//		List<Automovel> autos = q.getResultList();
+//		
+//		for(Automovel a : autos) {
+//			System.out.println(a.getMarca());
+//		}
 		
 		
 		
@@ -66,7 +66,7 @@ public class PersistidorDeAutomovel {
 		
 		
 		
-		em.close();
-	}
-
-}
+//		em.close();
+//	}
+//
+//}
