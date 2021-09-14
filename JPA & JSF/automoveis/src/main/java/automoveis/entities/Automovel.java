@@ -8,8 +8,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.QueryHint;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import automoveis.validation.MaxAnoAtualMais;
 
@@ -20,14 +21,12 @@ import automoveis.validation.MaxAnoAtualMais;
 })
 
 @Entity
+@Table(name="automovel_new")
 public class Automovel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@ManyToOne
-	private Modelo modelo;
 	
 	@Min(1900)
 	@MaxAnoAtualMais(message="O máximo do ano de fabricação é {0}")
@@ -37,13 +36,16 @@ public class Automovel {
 	@MaxAnoAtualMais(value=1, message="O máximo do ano do modelo é {0}")
 	private Integer anoModelo;
 	
-	@NotBlank
-	private Float preco;
+	@NotNull
+	private Double preco;
 	
-	@NotBlank
+	@NotNull
 	private Double kilometragem;
 	
 	private String observacoes;
+	
+	@ManyToOne
+	private Modelo modelo;
 	
 	public static final String LISTAR_DESTAQUES = "Automovel.buscarDestaques";
 	
@@ -79,11 +81,11 @@ public class Automovel {
 		this.anoModelo = anoModelo;
 	}
 
-	public Float getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Float preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 

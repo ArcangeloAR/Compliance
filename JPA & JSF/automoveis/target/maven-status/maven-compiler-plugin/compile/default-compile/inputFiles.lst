@@ -1,0 +1,13 @@
+C:\bin\automoveis\src\main\java\automoveis\validation\MaxAnoAtualMais.java
+C:\bin\automoveis\src\main\java\automoveis\validation\MaxAnoAtualMaisValidator.java
+C:\bin\automoveis\src\main\java\automoveis\controller\ModeloBean.java
+C:\bin\automoveis\src\main\java\automoveis\entities\Marca.java
+C:\bin\automoveis\src\main\java\automoveis\entities\Modelo.java
+C:\bin\automoveis\src\main\java\automovel\persistence\OpenSessionAndTransactionInView.java
+C:\bin\automoveis\src\main\java\automoveis\controller\MarcaBean.java
+C:\bin\automoveis\src\main\java\automoveis\config\PersistidorDeAutomovel.java
+C:\bin\automoveis\src\main\java\automoveis\controller\AutomovelBean.java
+C:\bin\automoveis\src\main\java\automovel\persistence\QueryDataModel.java
+C:\bin\automoveis\src\main\java\automovel\converter\EntityConverter.java
+C:\bin\automoveis\src\main\java\automoveis\entities\Automovel.java
+C:\bin\automoveis\src\main\java\automovel\persistence\JPAUtil.java

@@ -5,7 +5,9 @@
 //import javax.persistence.EntityManager;
 //import javax.persistence.Query;
 //
-//import automoveis.model.Automovel;
+//import automoveis.entities.Automovel;
+//import automovel.persistence.JPAUtil;
+//
 //
 //public class PersistidorDeAutomovel {
 //
@@ -20,7 +22,7 @@
 //		List<Automovel> autos = q.getResultList();
 //		
 //		for(Automovel a : autos) {
-//			System.out.println(a.getMarca());
+//			System.out.println(a.getModelo().getMarca());
 //		}
 		
 		

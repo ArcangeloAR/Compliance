@@ -13,24 +13,30 @@ import automovel.persistence.JPAUtil;
 @ManagedBean
 public class MarcaBean {
 
-	private Marca marca = new Marca();
+	private Marca marca;
 	private List<Marca> marcas;
-
-	public String salvar() {
-		EntityManager em = JPAUtil.getEntityManager();
-		em.persist(marca);
-		return "listar";
-	}
+	private boolean continuarInserindo;
 	
 	@PostConstruct
-	public void carregaMarcas() {
+	public void init(){
+		marca = new Marca();
+	}
+
+	public void salvar() {
 		EntityManager em = JPAUtil.getEntityManager();
-		marcas = em.createQuery("select m from Marca m", Marca.class).getResultList();
-		em.close();
+		em.persist(marca);
+		
 	}
 
 	public List<Marca> getMarcas() {
+		if (marcas == null) {
+			marcas = JPAUtil.getEntityManager().createQuery("select m from Marca m", Marca.class).getResultList();
+		}
+
 		return marcas;
+	}
+	public void setMarcas(List<Marca> marcas) {
+		this.marcas = marcas;
 	}
 
 	public Marca getMarca() {
@@ -41,8 +47,13 @@ public class MarcaBean {
 		this.marca = marca;
 	}
 
-	public void setMarcas(List<Marca> marcas) {
-		this.marcas = marcas;
+	public boolean isContinuarInserindo() {
+		return continuarInserindo;
 	}
+
+	public void setContinuarInserindo(boolean continuarInserindo) {
+		this.continuarInserindo = continuarInserindo;
+	}
+
 
 }

@@ -9,9 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name="modelo_new")
 public class Modelo {
 	
 	@Id
@@ -24,10 +26,10 @@ public class Modelo {
 	@ManyToOne
 	private Marca marca;
 	
-	@NotBlank
+	@NotNull
 	private String descricao;
 	
-	@NotBlank
+	@NotNull
 	private Integer potencia;
 	
 	

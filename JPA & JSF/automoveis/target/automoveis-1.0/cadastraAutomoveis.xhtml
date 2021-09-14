@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastrar Automóvel</title>
+</h:head>
+<h:body>
+	<h:form id="formAutomovel" prependId="false">
+		Todas as mensagens: <br />
+		<h:messages />
+		
+		<hr />
+		
+		Apenas mensagens globais <br />
+		<h:messages globalOnly="true" />
+		
+		<hr />
+		
+		Ano de Fabricação:
+		<h:inputText value="#{automovelBean.automovel.anoModelo}">
+			<f:validateLongRange minimum="1950" maximum="2013" />
+		</h:inputText>
+		
+		Ano do Modelo:
+		<h:inputText id="anoModelo" label="Ano do modelo" value="#{automovelBean.automovel.anoModelo}">
+			<f:validateLongRange minimum="1950" maximum="2013" />
+		</h:inputText>
+		<h:message for="anoModelo" />
+		
+		Preço:
+		<h:inputText value="#{automovelBean.automovel.preco}" />
+		
+		Kilometragem:
+		<h:inputText value="#{automovelBean.automovel.kilometragem}" />
+		
+		Observações:
+		<h:inputText value="#{automovelBean.automovel.observacoes}" />
+	</h:form>
+
+	<h:form>
+		<h:messages />
+		<h:panelGrid columns="2">
+			Marca: 
+			<h:selectOneMenu id="selectMarca" label="marca" value="#{automovelBean.marca}" required="true" converter="entityConverter">
+				<f:selectItem  itemValue="#{null}" itemLabel="-- Selecione --" noSelectionOption="true" />
+				<f:selectItem value="#marcaBean.marcas" var="marca" itemValue="#marca" itemLabel="#{marca.nome}" />
+				<f:ajax render="selectModelo" />
+			</h:selectOneMenu>
+			
+			Modelo: 
+			<h:selectOneMenu id="selectModelo" label ="modelo" value="#{automovelBean.automovel.modelo}" required="true" converter="entityConverter">
+				<f:selectItem  itemValue="#{null}" itemLabel="-- Selecione --" noSelectionOption="true" />
+				<f:selectItem value="#{automovelBean.marca.modelos}" var="modelo" itemValue="#{modelo}" itemLabel="{modelo.descricao}" />
+			</h:selectOneMenu>
+			
+			Ano de Fabricação: 
+			<h:inputText value="#{automovelBean.automovel.anoFabricacao}" />
+			
+			Ano do Modelo: 
+			<h:inputText value="#{automovelBean.automovel.anoModelo}" />
+			
+			Preço:
+			<h:inputText value="#{automovelBean.automovel.preco}" />
+			
+			Kilometragem:
+			<h:inputText value="#{automovelBean.automovel.kilometragem}" />
+			
+			Observações: 
+			<h:inputTextarea value="#{automovelBean.automovel.observacoes}"/>
+		</h:panelGrid>
+		
+		<h:commandButton value="Salvar" action="#{automovelBean.salvar(auto)}"/>
+	</h:form>
+</h:body>
+</html>
