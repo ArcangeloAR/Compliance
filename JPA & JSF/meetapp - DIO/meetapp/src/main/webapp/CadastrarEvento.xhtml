@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>Meetapp</title>
+</h:head>
+<h:body>
+	<div id="header" class="center">
+		<h:graphicImage id="logo" library="images" name="meetapp.png"></h:graphicImage>
+	</div>
+	<div class="formulario center">
+		<h:form id="form">
+			<h:panelGrid>
+				<p:outputLabel value="Nome do evento:" />
+				<p:inputText value="#{eventoBean.evento.nome}" />
+
+				<p:outputLabel value="Nome da organização:" />
+				<p:inputText value="#{eventoBean.evento.organizacao}" />
+
+				<p:outputLabel value="Local:" />
+				<p:inputText value="#{eventoBean.evento.local}" />
+
+				<p:outputLabel value="Data:" />
+				<p:inputText value="#{eventoBean.evento.data}" type="date" />
+
+				<p:outputLabel value="Hora:" />
+				<p:inputText value="#{eventoBean.evento.horario}" type="time" />
+			</h:panelGrid>
+			
+			<h:panelGrid styleClass="center">
+				<p:commandButton id="btn-enviar" value="Cadastrar"
+					action="#{eventoBean.adicionarEvento}" uptade="form table" />
+			</h:panelGrid>
+			
+		</h:form>
+	</div>
+	<hr />
+	<h:panelGroup styleClass="center">
+		<p:dataTable id="table" value="#{eventoBean.eventos}" var="e">
+			<p:column headerText="Evento">#{e.nome}</p:column>
+			<p:column headerText="Organização">#{e.organizacao}</p:column>
+			<p:column headerText="Local">#{e.local}</p:column>
+			<p:column headerText="Data">#{e.data}</p:column>
+			<p:column headerText="Horário">#{e.horario}</p:column>
+		</p:dataTable>
+	</h:panelGroup>
+</h:body>
+</html>

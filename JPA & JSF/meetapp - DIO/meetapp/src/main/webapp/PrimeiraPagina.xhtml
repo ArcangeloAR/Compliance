@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Primeira Página</title>
+</h:head>
+<h:body>
+	<h1>Primeira Página JSF</h1>
+
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputText value="Nome:" />
+			<h:inputText />
+
+			<h:outputText value="Btn" />
+			<h:commandButton value="Enviar" />
+
+			<h:outputText value="Pwd" />
+			<h:inputSecret />
+
+			<h:outputText value="Checkbox" />
+			<h:selectManyCheckbox>
+				<f:selectItem itemLabel="Java 8" itemValue="Java8"></f:selectItem>
+				<f:selectItem itemLabel="Java 9" itemValue="Java9"></f:selectItem>
+			</h:selectManyCheckbox>
+			
+			<h:outputText value="Combobox" />
+			<h:selectOneMenu>
+				<f:selectItem itemLabel="Java 8" itemValue="Java8"></f:selectItem>
+				<f:selectItem itemLabel="Java 9" itemValue="Java9"></f:selectItem>		
+			</h:selectOneMenu>
+			
+			<h:outputText value="Radio" />
+			<h:selectOneRadio>
+				<f:selectItem itemLabel="Java 8" itemValue="Java8"></f:selectItem>
+				<f:selectItem itemLabel="Java 9" itemValue="Java9"></f:selectItem>			
+			</h:selectOneRadio>
+			
+			<h:inputTextarea>Comentário: </h:inputTextarea>
+			
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
