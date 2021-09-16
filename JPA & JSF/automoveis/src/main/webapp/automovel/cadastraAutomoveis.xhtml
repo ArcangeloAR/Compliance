@@ -21,25 +21,28 @@
 		
 		<hr />
 		
-		Ano de Fabricação:
-		<h:inputText value="#{automovelBean.automovel.anoModelo}">
+		
+		#{msgs.label_ano_fabricacao}:
+		<h:inputText label="#{msgs.label_ano_fabricacao}" value="#{auto.anoFabricacao}">
 			<f:validateLongRange minimum="1950" maximum="2013" />
 		</h:inputText>
+		<h:message for="anoFabricacao" />
 		
-		Ano do Modelo:
-		<h:inputText id="anoModelo" label="Ano do modelo" value="#{automovelBean.automovel.anoModelo}">
+		#{msgs.label_ano_modelo}:
+		<h:inputText label="#{msgs.label_ano_modelo}" value="#{auto.anoModelo}">
 			<f:validateLongRange minimum="1950" maximum="2013" />
 		</h:inputText>
 		<h:message for="anoModelo" />
 		
-		Preço:
-		<h:inputText value="#{automovelBean.automovel.preco}" />
+		#{msgs.label_preco}:
+		<h:inputText label="#{msgs.label_preco}" value="#{auto.preco}" converterMessage="#{msgs.converter_preco}" />
+				
+		#{msgs.label_km}:
+		<h:inputText label="#{msgs.label_km}" value="#{auto.kilometragem}" />
 		
-		Kilometragem:
-		<h:inputText value="#{automovelBean.automovel.kilometragem}" />
+		#{msgs.label_obs}:
+		<h:inputText label="#{msgs.label_obs}" value="#{auto.observacoes}" />
 		
-		Observações:
-		<h:inputText value="#{automovelBean.automovel.observacoes}" />
 	</h:form>
 
 	<h:form>

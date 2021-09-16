@@ -6,21 +6,25 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
 
+import javax.faces.view.ViewScoped;
+
 import automoveis.entities.Marca;
 import automovel.persistence.JPAUtil;
 
 @SuppressWarnings("deprecation")
 @ManagedBean
+@ViewScoped
 public class MarcaBean {
 
 	private Marca marca;
 	private List<Marca> marcas;
-	private boolean continuarInserindo;
+	
 	
 	@PostConstruct
 	public void init(){
 		marca = new Marca();
 	}
+	
 
 	public void salvar() {
 		EntityManager em = JPAUtil.getEntityManager();
@@ -46,14 +50,5 @@ public class MarcaBean {
 	public void setMarca(Marca marca) {
 		this.marca = marca;
 	}
-
-	public boolean isContinuarInserindo() {
-		return continuarInserindo;
-	}
-
-	public void setContinuarInserindo(boolean continuarInserindo) {
-		this.continuarInserindo = continuarInserindo;
-	}
-
 
 }
