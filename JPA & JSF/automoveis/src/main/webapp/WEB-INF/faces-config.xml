@@ -6,11 +6,18 @@
 	version="2.0">
 
 	<application>
-
 		<resource-bundle>
-			<base-name>automoveis.messages.Mensagens</base-name>
+			<base-name>br.com.automoveis.messages.Mensagens</base-name>
 			<var>msgs</var>
 		</resource-bundle>
 	</application>
 
+	<navigation-rule>
+		<from-view-id>/marca/editar.xhtml</from-view-id>
+		<navigation-case>
+			<if>#{marcaBean.marca.id != null}</if>
+			<to-view-id>/marca/#{marcaBean.continuarInserindo? 'editar' : 'listar'}.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

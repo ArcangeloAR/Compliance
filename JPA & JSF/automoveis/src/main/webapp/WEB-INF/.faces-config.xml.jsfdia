@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#marca#editar.xhtml"
+  PATH="/marca/editar.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#marca#editar.xhtml:0" NAME="item"
+   PATH="/marca/editar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="::#marca##{marcaBean.continuarInserindo? 'editar' : 'listar'}.xhtml"
+    NAME="output"
+    PATH="/marca/#{marcaBean.continuarInserindo? 'editar' : 'listar'}.xhtml"
+    TARGET="rules:#marca##{marcaBean.continuarInserindo? 'editar' : 'listar'}.xhtml"
+    TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#marca##{marcaBean.continuarInserindo? 'editar' : 'listar'}.xhtml"
+  PATH="/marca//{marcaBean.continuarInserindo? 'editar' "
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
