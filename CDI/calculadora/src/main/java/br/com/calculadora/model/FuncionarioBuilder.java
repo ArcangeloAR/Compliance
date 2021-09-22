@@ -5,14 +5,10 @@ import java.util.Calendar;
 public class FuncionarioBuilder {
 
 	private int anoAdmissao;
-	
 	private Escolaridade escolaridadeFuncionario;
-	
 	private Escolaridade escolaridadeCargo;
-	
 	private double salarioBase;
-	
-	
+
 	public FuncionarioBuilder() {
 		escolaridadeCargo = Escolaridade.SUPERIOR;
 		escolaridadeFuncionario = Escolaridade.SUPERIOR;
