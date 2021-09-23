@@ -9,7 +9,7 @@ public class CalculadoraDeImpostosTeste {
 	public void testaCalculoIRNaSegundaFaixaDeContribuicao(){
 		Funcionario funcionario = new Funcionario();
 
-		CalculadoraDeSalariosInterface calcSalariosMock = 
+		CalculadoraDeSalarios calcSalariosMock = 
 							new CalculadoraDeSalariosMock(3000.0);
 
 		CalculadoraDeImpostos calculadoraImpostos = new CalculadoraDeImpostos(calcSalariosMock);

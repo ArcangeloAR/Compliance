@@ -14,11 +14,6 @@ public class Funcionario {
 	public Funcionario() {
 	}
 	
-	public Funcionario(Cargo cargo, Escolaridade escolaridade, int anoAdmissao) {
-        this.cargo = cargo;
-        this.escolaridade = escolaridade;
-        this.anoAdmissao = anoAdmissao;
-    }
 	
 	public Funcionario(String nome, Cargo cargo, Escolaridade escolaridade, int anoAdmissao) {
         this.nome = nome;

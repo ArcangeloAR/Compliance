@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,7 @@ public class CalcularFolhaPagamento extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Inject
+	@Inject @Any
 	private CalculadoraFolhaPagamento calculadoraFolha;
 
 	public CalcularFolhaPagamento() {
@@ -44,7 +45,7 @@ public class CalcularFolhaPagamento extends HttpServlet {
 		Folha folha = calculadoraFolha.calculaFolha(funcionarios);
 
 		// Mensagem para o usuário
-		res.getOutputStream().print("Calculo da folha " + "executado com sucesso");
+		res.getOutputStream().print("Calculo da folha executado com sucesso!");
 		// Saída no console
 		System.out.println("Fim.");
 	}

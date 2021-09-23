@@ -16,9 +16,9 @@ public class CalculadoraDeSalariosFactory {
         }
     }
     
-    public CalculadoraDeSalariosInterface criaCalculadora(){
+    public CalculadoraDeSalarios criaCalculadora(){
         TabelaDeReferenciaSalarial pisosSalariais = criaInstancia(TabelaDeReferenciaSalarial.class);
-        CalculadoraDeSalariosInterface calculadora = criaInstancia(CalculadoraDeSalariosInterface.class);
+        CalculadoraDeSalarios calculadora = criaInstancia(CalculadoraDeSalarios.class);
         calculadora.setTabelaDeReferenciaSalarial(pisosSalariais);
         return calculadora;
     }

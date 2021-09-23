@@ -22,6 +22,6 @@ public class FuncionarioBuilder {
 
 	public Funcionario build() {
 		Cargo cargo = new Cargo(salarioBase, escolaridadeCargo);
-		return new Funcionario(cargo, escolaridadeFuncionario, anoAdmissao);
+		return new Funcionario("Fulano", cargo, escolaridadeFuncionario, anoAdmissao);
 	}
 }

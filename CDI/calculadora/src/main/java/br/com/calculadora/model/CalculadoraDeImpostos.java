@@ -5,15 +5,14 @@ import javax.inject.Inject;
 
 public class CalculadoraDeImpostos {
 
-	private CalculadoraDeSalariosInterface calculadoraSalariosInterface;
-	
-	
+	private CalculadoraDeSalarios calculadoraSalariosInterface;
+		
 	public CalculadoraDeImpostos() {
 
 	}
-
+	
 	@Inject
-	public CalculadoraDeImpostos(CalculadoraDeSalariosInterface calculadora) {
+	public CalculadoraDeImpostos(CalculadoraDeSalarios calculadora) {
 		System.out.println("Iniciando Calculadora de impostos...");
 		calculadoraSalariosInterface = calculadora;
 	}
