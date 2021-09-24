@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.calculadora.model.CalculadoraDeImpostos;
 import br.com.calculadora.model.Funcionario;
 import br.com.calculadora.model.FuncionarioBuilder;
@@ -19,11 +22,14 @@ public class IniciandoComCDI extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
+	private Logger logger =	LoggerFactory.getLogger(IniciandoComCDI.class);
+	
 	@Inject
 	private CalculadoraDeImpostos calculadoraImpostos;
 
 	public IniciandoComCDI() {
-		System.out.println("Instanciando a Servlet...");
+		// System.out.println("Instanciando a Servlet...");
+		logger.info("Instanciando a Servlet...");
 	}
 
 	@PostConstruct
