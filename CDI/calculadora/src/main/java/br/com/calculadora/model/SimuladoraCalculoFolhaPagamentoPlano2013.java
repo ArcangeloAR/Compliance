@@ -1,10 +1,11 @@
 package br.com.calculadora.model;
 
+import static br.com.calculadora.qualificadores.PlanoDeCargos.*;
+
 import java.util.List;
 
 import br.com.calculadora.qualificadores.Simulador;
 
-import static br.com.calculadora.qualificadores.PlanoDeCargos.*;
 
 @Simulador(planoDeCargos = VERSAO_2013)
 public class SimuladoraCalculoFolhaPagamentoPlano2013 implements CalculadoraFolhaPagamento {

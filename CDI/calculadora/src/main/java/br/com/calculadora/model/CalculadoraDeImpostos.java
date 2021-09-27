@@ -6,7 +6,7 @@ import javax.inject.Inject;
 public class CalculadoraDeImpostos {
 
 	private CalculadoraDeSalarios calculadoraSalariosInterface;
-		
+	
 	public CalculadoraDeImpostos() {
 
 	}

@@ -3,6 +3,7 @@ package br.com.calculadora.model;
 import java.util.ResourceBundle;
 
 public class CalculadoraDeSalariosFactory {
+
     private ResourceBundle bundle = ResourceBundle.getBundle("dependencias");
     
     private <T> T criaInstancia(Class<T> classe){

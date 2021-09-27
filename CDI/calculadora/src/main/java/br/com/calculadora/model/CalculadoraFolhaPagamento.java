@@ -7,3 +7,4 @@ public interface CalculadoraFolhaPagamento {
 	Folha calculaFolha(List<Funcionario> funcionarios);
 
 }
+
