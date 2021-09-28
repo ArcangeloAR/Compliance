@@ -1,11 +1,24 @@
 package br.com.calculadora.model;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
-public class CalculadoraFolhaPagamentoReal implements CalculadoraFolhaPagamento {
-	public Folha calculaFolha(List<Funcionario> funcionarios) {
+import javax.inject.Inject;
 
-		System.out.println("Efetua o cálculo real da folha de pagamentos");
-		return null;
+public class CalculadoraFolhaPagamentoReal implements CalculadoraFolhaPagamento, Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private CalculadoraDeSalarios calculadoraDeSalarios;
+
+	@Override
+	public Folha calculaFolha(List<Funcionario> funcionarios) {
+		double valor = 0.0;
+		for (Funcionario funcionario : funcionarios) {
+			valor += calculadoraDeSalarios.calculaSalario(funcionario);
+		}
+		return new Folha(new Date(), valor, funcionarios);
 	}
 }
