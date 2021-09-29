@@ -1,16 +1,15 @@
 package br.com.calculadora.controller;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
-import br.com.calculadora.interceptador.Auditavel;
+import br.com.calculadora.estereotipos.CalculadoraBean;
 import br.com.calculadora.model.CalculadoraDeImpostos;
 import br.com.calculadora.model.Funcionario;
 import br.com.calculadora.model.FuncionarioBuilder;
 
-@Named @RequestScoped @Auditavel
+
+@CalculadoraBean
 public class CalculadoraImpostosBean {
 
 	@Inject
