@@ -49,8 +49,6 @@ public class Usuario implements java.io.Serializable {
 	private String twitter;
 	
 	
-	
-	
 	private transient String senha;
 	@Column(name="ultimo_login", nullable=true) @Temporal(TemporalType.TIMESTAMP)
 	private Date ultimoLogin;
