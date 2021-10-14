@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.com.greendogdelivery.model.Cliente;
@@ -13,7 +14,7 @@ import br.com.greendogdelivery.model.Pedido;
 import br.com.greendogdelivery.repository.ClienteRepository;
 
 @Component
-public class RepositoryTest {
+public class RepositoryTest implements ApplicationRunner {
 
 	private static final long ID_CLIENTE_FERNANDO = 11l;
 	private static final long ID_CLIENTE_ZE_PEQUENO = 22l;
@@ -29,8 +30,10 @@ public class RepositoryTest {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
+	@Override
 	public void run(ApplicationArguments applicationArguments) throws Exception {
-		System.out.println(">>>	Iniciando carga	de dados...");
+
+		System.out.println(">>> Iniciando carga de dados...");
 		Cliente fernando = new Cliente(ID_CLIENTE_FERNANDO, "Fernando Boaglio", "Sampa");
 		Cliente zePequeno = new Cliente(ID_CLIENTE_ZE_PEQUENO, "Zé Pequeno", "Cidade de Deus");
 
@@ -40,26 +43,32 @@ public class RepositoryTest {
 
 		List<Item> listaPedidoFernando1 = new ArrayList<Item>();
 		listaPedidoFernando1.add(dog1);
+
 		List<Item> listaPedidoZePequeno1 = new ArrayList<Item>();
 		listaPedidoZePequeno1.add(dog2);
 		listaPedidoZePequeno1.add(dog3);
 
 		Pedido pedidoDoFernando = new Pedido(ID_PEDIDO1, fernando, listaPedidoFernando1, dog1.getPreco());
 		fernando.novoPedido(pedidoDoFernando);
+
 		Pedido pedidoDoZepequeno = new Pedido(ID_PEDIDO2, zePequeno, listaPedidoZePequeno1,
 				dog2.getPreco() + dog3.getPreco());
 		zePequeno.novoPedido(pedidoDoZepequeno);
-		System.out.println(">>> Pedido 1 - Fernando:	" + pedidoDoFernando);
+
+		System.out.println(">>> Pedido 1 - Fernando : " + pedidoDoFernando);
 		System.out.println(">>> Pedido 2 - Ze Pequeno: " + pedidoDoZepequeno);
 
 		clienteRepository.saveAndFlush(zePequeno);
-		System.out.println(">>>	Gravado	cliente	2:	" + zePequeno);
+		System.out.println(">>> Gravado cliente 2: " + zePequeno);
+
 		List<Item> listaPedidoFernando2 = new ArrayList<Item>();
 		listaPedidoFernando2.add(dog2);
 		Pedido pedido2DoFernando = new Pedido(ID_PEDIDO3, fernando, listaPedidoFernando2, dog2.getPreco());
 		fernando.novoPedido(pedido2DoFernando);
 		clienteRepository.saveAndFlush(fernando);
-		System.out.println(">>>	Pedido	2-Fernando:" + pedido2DoFernando);
-		System.out.println(">>>	Gravado	cliente	1:	" + fernando);
+		System.out.println(">>> Pedido 2 - Fernando : " + pedido2DoFernando);
+		System.out.println(">>> Gravado cliente 1: " + fernando);
+		
 	}
+	
 }
