@@ -9,7 +9,7 @@ public class MensagemDTO {
 	private String debug;
 	
 	
-	public MensagemDTO(String mensagem,String servidor,String debug) {
+	public MensagemDTO(String mensagem, String servidor, String debug) {
 		this.mensagem = mensagem;
 		this.servidor = servidor;
 		this.debug = debug;

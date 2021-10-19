@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,21 +18,26 @@ import br.com.greendogdelivery.model.Item;
 import br.com.greendogdelivery.model.Pedido;
 import br.com.greendogdelivery.repository.ClienteRepository;
 import br.com.greendogdelivery.repository.ItemRepository;
+import br.com.greendogdelivery.util.EnviaNotificacao;
 
 @RestController
 public class NovoPedidoController {
-	
-	@Autowired
-	public NovoPedidoController(ClienteRepository clienteRepository, ItemRepository itemRepository) {
-		this.clienteRepository = clienteRepository;
-		this.itemRepository = itemRepository;
-	}
 	
 	private final ClienteRepository clienteRepository;
 	
 	private final ItemRepository itemRepository;
 	
+	private final EnviaNotificacao enviaNotificacao;
 	
+	
+	@Autowired
+	public NovoPedidoController(ClienteRepository clienteRepository, ItemRepository itemRepository, EnviaNotificacao enviaNotificacao) {
+		this.clienteRepository = clienteRepository;
+		this.itemRepository = itemRepository;
+		this.enviaNotificacao = enviaNotificacao;
+	}
+	
+	@CrossOrigin(origins = {"http://localhost:8080"})
 	@GetMapping("/rest/pedido/novo/{clienteId}/{listaDeItens}")
 	public RespostaDTO novo(@PathVariable("clienteId") Long clienteId, @PathVariable("listaDeItens") String listaDeItens) {
 		
@@ -61,6 +67,8 @@ public class NovoPedidoController {
 			c.getPedidos().add(pedido);
 
 			this.clienteRepository.saveAndFlush(c);
+			
+			enviaNotificacao.enviaEmail(c, pedido);
 
 			List<Long> pedidosID = new ArrayList<Long>();
 			for (Pedido p : c.getPedidos()) {
